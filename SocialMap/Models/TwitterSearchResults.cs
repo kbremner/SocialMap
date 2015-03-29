@@ -14,6 +14,25 @@ namespace SocialMap.Models
         private readonly List<ITweet> tweets;
         private readonly IDictionary<int, IEnumerable<string>> hashtags;
 
+        public IEnumerable<IHashtagBucket> HashTags
+        {
+            get
+            {
+                foreach (var pair in hashtags)
+                {
+                    yield return new HashtagBucket(pair.Key, pair.Value);
+                }
+            }
+        }
+
+        public IEnumerable<ITweet> Tweets
+        {
+            get
+            {
+                return tweets;
+            }
+        }
+
         public TwitterSearchResults(string jsonStr)
         {
             tweets = new List<ITweet>();
@@ -31,7 +50,7 @@ namespace SocialMap.Models
                 foreach (var hashtag in tweet.Hashtags)
                 {
                     // if it already has a count, increment it, else initialise to 1
-                    int count = 0;
+                    var count = 0;
                     var exists = hashtagLookup.TryGetValue(hashtag, out count);
                     hashtagLookup[hashtag] = ++count;
 
@@ -63,28 +82,5 @@ namespace SocialMap.Models
                 }
             }
         }
-
-        #region properties
-
-        public IEnumerable<IHashtagBucket> HashTags
-        {
-            get
-            {
-                foreach (var pair in hashtags)
-                {
-                    yield return new HashtagBucket(pair.Key, pair.Value);
-                }
-            }
-        }
-
-        public IEnumerable<ITweet> Tweets
-        {
-            get
-            {
-                return tweets;
-            }
-        }
-
-        #endregion
     }
 }

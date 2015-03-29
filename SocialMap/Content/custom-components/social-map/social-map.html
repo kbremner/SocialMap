@@ -1,0 +1,27 @@
+﻿<link rel="import" href="/Content/components/polymer/polymer.html">
+<link rel="import" href="/Content/components/core-ajax/core-ajax.html">
+<link rel="import" href="/Content/components/google-map/google-map.html">
+<link rel="import" href="/Content/components/geo-location/geo-location.html">
+<link rel="import" href="/Content/components/cw-moment/cw-moment.html">
+<link rel="import" href="social-marker-content.html">
+<link rel="import" href="social-hashtag-button.html">
+
+<polymer-element name="social-map" attributes="tweets_url, auth_url, max_hashtags, radius">
+    <template>
+        <link rel="stylesheet" href="social-map.css">
+        <link rel="stylesheet" href="/Content/bootstrap.min.css">
+
+        <core-ajax id="ajaxTweets" url="{{tweets_url}}" on-core-response="{{handleResults}}" on-core-error="{{handleError}}" handleAs="json"></core-ajax>
+        <geo-location id="loc" watchpos highaccuracy latitude="{{lat}}" longitude="{{lng}}" on-geo-response="{{handleGeoResponse}}"></geo-location>
+        <google-map  id="map" latitude="{{lat}}" longitude="{{lng}}" disabledefaultui fittomarkers maptype="satellite"></google-map>
+
+        <div id="error" class="hidden">
+            <p>An error occurred fetching data. Please refresh the page.</p>
+        </div>
+        <ul id="hashtags"></ul>
+        <div id="refresh" class="btn btn-primary" on-click="{{handleRefresh}}">
+            <span>Refresh</span>
+        </div>
+    </template>
+    <script src="social-map.js"></script>
+</polymer-element>

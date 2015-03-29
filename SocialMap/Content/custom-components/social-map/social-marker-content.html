@@ -1,0 +1,20 @@
+﻿<link rel="import" href="/Content/components/polymer/polymer.html">
+
+<polymer-element name="social-marker-content" attributes="createdAt, text, sender, favorites, retweets" noscript>
+    <template>
+        <link rel="stylesheet" href="social-marker-content.css">
+
+        <div class="tweet">
+            <p><a class="tweet-sender-link" href="http://twitter.com/{{sender}}" target="_blank"><span class="tweet-sender">@{{sender}}:</span></a></p>
+            <p class="tweet-text">{{text}}</p>
+            <p><cw-moment class="tweet-moment" datetime="{{createdAt}}" fromnow></cw-moment></p>
+            <p>
+                <img src="/Content/assets/favourites.png" class="tweet-favs-img" />
+                <span class="tweet-fav-count">{{favorites}}</span>
+                <img src="/Content/assets/retweets.png" class="tweet-retweets-img" />
+                <span class="tweet-retweet-count">{{retweets}}</span>
+            </p>
+        </div>
+    </template>
+    
+</polymer-element>

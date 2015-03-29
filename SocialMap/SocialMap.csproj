@@ -130,7 +130,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\components\**" />
-    <Content Include="Content\Responsive.css" />
+    <Content Include="Content\custom-components\social-map\social-hashtag-button.css" />
+    <Content Include="Content\custom-components\social-map\social-hashtag-button.html" />
+    <Content Include="Content\custom-components\social-map\social-map.css" />
+    <Content Include="Content\custom-components\social-map\social-map.html" />
+    <Content Include="Content\custom-components\social-map\social-map.js" />
+    <Content Include="Content\custom-components\social-map\social-marker-content.css" />
+    <Content Include="Content\custom-components\social-map\social-marker-content.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

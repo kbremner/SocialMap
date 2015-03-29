@@ -1,0 +1,16 @@
+﻿<link rel="import" href="/Content/components/polymer/polymer.html">
+
+<polymer-element name="social-hashtag-button" attributes="hashtag, occurances">
+    <template id="hashtag_template">
+        <link rel="stylesheet" href="/Content/bootstrap.min.css">
+        <link rel="stylesheet" href="social-hashtag-button.css">
+        <li class="hashtag btn btn-primary btn-lrg" on-click="{{onClick}}"><span>{{hashtag}} ({{occurances}})</span></li>
+    </template>
+    <script>
+        Polymer({
+            onClick: function () {
+                this.fire("click", { hashtag: this.hashtag });
+            }
+        });
+    </script>
+</polymer-element>

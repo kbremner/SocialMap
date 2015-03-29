@@ -1,0 +1,30 @@
+﻿.tweet-retweet-count, .tweet-fav-count, .tweet-moment, .tweet-sender-link {
+    font-weight: bold;
+}
+
+.tweet-sender-link {
+    text-decoration: none;
+}
+
+.tweet-favs-img {
+    height: 10px;
+    padding-top: 5px;
+    padding-right: 2px;
+}
+
+.tweet-retweets-img {
+    height: 15px;
+    vertical-align: text-bottom;
+    padding-right: 2px;
+    padding-left: 10px;
+}
+
+.tweet-moment {
+    font-style: italic;
+}
+
+@media (max-width: 1024px) {
+    .tweet {
+        font-size: 0.7em;
+    }
+}

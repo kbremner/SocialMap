@@ -1,0 +1,50 @@
+﻿google-map {
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+#error p {
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+    font-size: 1.2em;
+}
+#error {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 50px;
+    background-color: coral;
+    z-index: 1;
+}
+
+.hidden {
+    display:none;
+}
+
+#refresh {
+    position: absolute;
+    top: 20px;
+    right: 20px
+}
+
+#hashtags {
+    position: absolute;
+    bottom: 25px;
+    left: 20px;
+    right: 20px;
+    color: white;
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+@media (min-width: 520px) {
+    #hashtags {
+        bottom: 10px;
+    }
+}
