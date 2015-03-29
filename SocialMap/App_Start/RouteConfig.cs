@@ -18,12 +18,6 @@ namespace SocialMap
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-
-            routes.MapRoute(
-                name: "Pin",
-                url: "Home/Pin/{firstItem}",
-                defaults: new { controller = "Home", action = "Pin", firstItem = "" }
-            );
         }
     }
 }

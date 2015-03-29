@@ -1,0 +1,10 @@
+﻿@model SocialMap.Models.TwitterSearchResults
+
+@foreach (var item in Model.Tweets)
+{
+    <google-map-marker latitude="@item.Latitude" longitude="@item.Longitude" title="@item.Sender">
+        <a href="https://twitter.com/@item.Sender" target="_blank">@@@item.Sender:</a>
+        <span>@item.Text</span>
+        <div><span>@item.Latitude,@item.Longitude</span></div>
+    </google-map-marker>
+}

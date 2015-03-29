@@ -1,0 +1,26 @@
+﻿@media (max-width: 1024px) {
+    #hashtags {
+        top: initial;
+        right: 20px;
+    }
+
+    #hashtags li {
+        display: inline-block;
+    }
+}
+
+@media (max-width: 800px) {
+    .btn {
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 520px) {
+    #hashtags {
+        bottom: 20px;
+    }
+
+    .btn {
+        font-size: 0.6em;
+    }
+}

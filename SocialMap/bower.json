@@ -1,0 +1,13 @@
+{
+  "name": "SocialMap",
+  "dependencies": {
+    "google-map": "~0.4.2",
+    "geo-location": "~0.0.7",
+    "cw-moment": "~0.1.1"
+  },
+  "resolutions": {
+    "polymer": "~0.5.1",
+    "core-component-page": "^0.5",
+    "webcomponentsjs": "^0.6.0"
+  }
+}

@@ -1,24 +1,55 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿google-map {
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+#hashtags {
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    left: 20px;
+    color: white;
+    list-style-type: none;
+    padding: 0;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+#hashtags li {
+  display: block;
+  margin-bottom: 10px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+google-map /deep/ .tweet-sender-link {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+google-map /deep/ .tweet-moment {
+    font-weight: bold;
+    font-style: italic;
+}
+
+google-map /deep/ .tweet-retweets-img {
+    height: 15px;
+    vertical-align: text-bottom;
+    padding-right: 2px;
+    padding-left: 10px;
+}
+
+google-map /deep/ .tweet-favs-img {
+    height: 10px;
+    padding-top: 5px;
+    padding-right: 2px;
+}
+
+google-map /deep/ .tweet-fav-count, google-map /deep/ .tweet-retweet-count {
+    font-weight: bold;
+}
+
+#relocate {
+    position: absolute;
+    top: 20px;
+    right: 20px
 }
