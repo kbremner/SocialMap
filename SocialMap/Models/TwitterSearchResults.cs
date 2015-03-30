@@ -39,7 +39,7 @@ namespace SocialMap.Models
         public TwitterSearchResults(string jsonStr)
         {
             tweets = new List<ITweet>();
-            hashtags = new Dictionary<int, SortedList<string, string>>();
+            hashtags = new SortedDictionary<int, SortedList<string, string>>();
 
             var json = JObject.Parse(jsonStr);
             var hashtagLookup = new Dictionary<string, int>();
