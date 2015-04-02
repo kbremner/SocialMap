@@ -46,32 +46,44 @@ namespace SocialMap.Models
 
             foreach(var rawTweet in json["statuses"].Children()) {
                 // Parse the status and store it
-                var tweet = new Tweet(rawTweet);
-                tweets.Add(tweet);
-
-                // Update the incident counts for any hashtags in the status
-                foreach (var hashtag in tweet.Hashtags)
+                Tweet tweet = null;
+                try
                 {
-                    // if it already has a count, increment it, else initialise to 1
-                    var count = 0;
-                    var exists = hashtagLookup.TryGetValue(hashtag, out count);
-                    hashtagLookup[hashtag] = ++count;
+                    tweet = new Tweet(rawTweet);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Failed to parse tweet: " + e);
+                }
 
-                    // If it is currently in a bucket, remove it
-                    if (exists)
+                if (tweet != null)
+                {
+                    tweets.Add(tweet);
+
+                    // Update the incident counts for any hashtags in the status
+                    foreach (var hashtag in tweet.Hashtags)
                     {
-                        hashtags[count - 1].Remove(hashtag);
-                    }
+                        // if it already has a count, increment it, else initialise to 1
+                        var count = 0;
+                        var exists = hashtagLookup.TryGetValue(hashtag, out count);
+                        hashtagLookup[hashtag] = ++count;
 
-                    // get the new bucket, creating it if necessary
-                    SortedList<string, string> newBucket;
-                    if (!hashtags.TryGetValue(count, out newBucket))
-                    {
-                        hashtags[count] = newBucket = new SortedList<string, string>();
-                    }
+                        // If it is currently in a bucket, remove it
+                        if (exists)
+                        {
+                            hashtags[count - 1].Remove(hashtag);
+                        }
 
-                    // add the tag to it's new bucket
-                    newBucket.Add(hashtag, hashtag);
+                        // get the new bucket, creating it if necessary
+                        SortedList<string, string> newBucket;
+                        if (!hashtags.TryGetValue(count, out newBucket))
+                        {
+                            hashtags[count] = newBucket = new SortedList<string, string>();
+                        }
+
+                        // add the tag to it's new bucket
+                        newBucket.Add(hashtag, hashtag);
+                    }
                 }
             }
         }
